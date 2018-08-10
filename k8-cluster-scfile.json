@@ -1,0 +1,40 @@
+{
+	"test-network": {
+		"gopath": "GOPATH",
+	    "orderer": {
+		 "orderer0": {
+		    "name": "orderer",
+		    "mspid": "OrdererMSP",
+		    "mspPath": "k8cluster/crypto-config",
+		    "adminPath": "k8cluster/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp",
+		    "comName": "",
+		    "url": "grpc://169.61.102.238:31010",
+		    "server-hostname": "",
+			"tls_cacerts": "k8cluster/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem"
+			
+		}
+	    },
+	    "org1": {
+		    "name": "org1",
+		    "mspid": "Org1MSP",
+		    "mspPath": "k8cluster/crypto-config",
+		    "adminPath": "k8cluster/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp",
+		    "comName": "example.com",
+		    "ordererID": "orderer0",
+		    "ca": {
+			 "url":"http://169.61.102.238:30054",
+			 "name": "CA1"
+		    },
+		    "username": "admin",
+		    "secret": "adminpw",
+		    "peer1": {
+			    "requests": "grpc://169.61.102.238:30110",
+			    "events": "grpc://169.61.102.238:30111",
+			    "server-hostname": "",
+				"tls_cacerts": "k8cluster/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem"
+				
+		    }
+	    
+	    }
+	}
+    }

@@ -1,0 +1,73 @@
+{
+    "channelID": "",
+    "chaincodeID": "postal-scm",
+    "chaincodeVer": "1.0",
+    "logLevel": "ERROR",
+    "invokeCheck": "FALSE",
+    "transMode": "Constant",
+    "transType": "Invoke",
+    "invokeType": "Move",
+    "targetPeers": "OrgAnchor",
+    "nProcPerOrg": "50",
+    "nRequest": "0",
+    "runDur": "600",
+    "TLS": "enabled",
+    "channelOpt": {
+        "name": "channel1",
+        "action":  "create",
+        "orgName": [
+            "org1"
+        ]
+    },
+    "burstOpt": {
+        "burstFreq0":  "10",
+        "burstDur0":  "10",
+        "burstFreq1": "10",
+        "burstDur1": "10"
+    },
+    "mixOpt": {
+        "mixQuery": "false",
+        "mixFreq": "10"
+    },
+    "constantOpt": {
+        "recHist": "HIST",
+        "constFreq": "20",
+        "devFreq": "2"
+    },
+    "listOpt": {
+        "org1": ["peer1"]
+        
+    },
+    "eventOpt": {
+        "type": "FilteredBlock",
+        "listener": "Block",
+        "timeout": "240000"
+    },
+    "ccType": "ccchecker",
+    "ccOpt": {
+        "keyIdx": [1],
+        "keyPayLoad": [2],
+        "keyStart": "1000",
+        "payLoadMin": "1024",
+        "payLoadMax": "1024"
+    },
+    "deploy": {
+        "chaincodePath": "github.com/hyperledger/fabric-test/chaincodes/samplecc/go",
+        "fcn": "init",
+        "args": []
+    },
+    "invoke": {
+        "query": {
+            "fcn": "queryPostal",
+            "args": ["China"]
+        },
+        "move": {
+            "fcn": "addPostal",
+            "args": ["{\"PostalID\":\"China\",\"Name\":\"ChinaPost\",\"Country\":\"China\"}"]
+            
+        }
+    },
+    "SCFile": [
+		{"ServiceCredentials":"SCFiles/k8-cluster-acitorg.json"}
+	]
+}
